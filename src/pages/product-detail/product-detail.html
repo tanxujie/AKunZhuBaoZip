@@ -1,0 +1,61 @@
+<!--
+  Generated template for the ProductDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title text-center>{{ 'PRODUCT_DETAIL_TITLE' | translate }}</ion-title>
+    <button ion-button small ion-end (click)="shareImages()"><ion-icon name="share"></ion-icon>{{'SHARE_BUTTON'|translate}}</button>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-slides pager style="height:65%;">
+    <ion-list *ngFor="let imgSrc of currentProduct.imageSrcs">
+        <ion-slide>
+          <img [src]="imgSrc"/>
+        </ion-slide>
+    </ion-list>
+    <ion-slide *ngIf="currentProduct.hasVideo">
+    <video width="auto" height="auto" controls>
+      <source type="video/mp4" src="{{currentProduct.videoSrc}}"/>
+    </video>
+    </ion-slide>
+  </ion-slides>
+  <p style="background-color:#f53d3d;color:#f4f4f4;">商品信息</p>
+  <div>
+    【{{currentProduct.code}}】{{currentProduct.name}} {{currentProduct.description}}
+    <p>
+      {{'EX_FACTORY_PRICE'|translate}} : {{currentProduct.exFactoryPrice}}
+    </p>
+    <p>
+      {{'FAVORABLE_PRICE'|translate}} : {{currentProduct.favorablePrice}}
+    </p>
+    <p>
+      {{'PRIMARY_PRICE'|translate}} : {{currentProduct.primaryPrice}}
+    </p>
+  </div>
+  <p style="background-color:#f53d3d;color:#f4f4f4;">购买方式</p>
+  <div>
+    <p>
+      {{'PHONE_NUMBER' | translate }}: {{currentProduct.phoneNumber}}
+    </p>
+    <p>
+      {{'WECHAT_NUMBER' | translate}}:{{currentProduct.wechatNumber}}
+    </p>
+  </div>
+  <p style="background-color:#f53d3d;color:#f4f4f4;">图片</p>
+  <div>
+    <ion-card class="card" *ngFor="let imgSrc of currentProduct.imageSrcs">
+      <img [src]="imgSrc" style="width:auto;height:auto;"/>
+    </ion-card>
+    <!--
+    <ion-card *ngIf="currentProduct.hasVideo" style="width:auto; height:450px;">
+    <video controls>
+      <source type="video/mp4" src="{{currentProduct.videoSrc}}"/>
+    </video>
+    </ion-card>
+  -->
+  </div>
+</ion-content>

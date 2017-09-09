@@ -1,0 +1,33 @@
+<ion-content>
+  <form (submit)="doLogin()">
+    <ion-list>
+      <ion-item>
+        <div align="center" padding>
+        <img src="assets/icon/favicon.png" class="slide-image" />
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'PHONENUMBER' | translate }}</ion-label>
+        <ion-input type="number" [(ngModel)]="account.phonenumber" name="phonenumber"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" [(ngModel)]="account.password" name="password"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'REMEMBER_PASSWORD' | translate }}</ion-label>
+        <ion-checkbox name="rememberPassword" checked="true" [(ngModel)]="account.rememberPassword"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'AUTO_LOGIN' | translate }}</ion-label>
+        <ion-checkbox name="autoLogin" checked="true" [(ngModel)]="account.autoLogin"></ion-checkbox>
+      </ion-item>
+      <ion-item>
+        <a href="">{{ 'FORGET_PASSWORD' | translate }}</a>
+      </ion-item>
+      <div padding>
+        <button ion-button color="primary" block>{{ 'LOGIN_BUTTON' | translate }}</button>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>
